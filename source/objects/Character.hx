@@ -18,6 +18,7 @@ typedef CharacterFile = {
 	var scale:Float;
 	var sing_duration:Float;
 	var healthicon:String;
+	var shake_screen:Bool;
 
 	var position:Array<Float>;
 	var camera_position:Array<Float>;
@@ -73,6 +74,7 @@ class Character extends FlxSprite
 	public var missingText:FlxText;
 	public var hasMissAnimations:Bool = false;
 	public var vocalsFile:String = '';
+	public var shakesScreen:Bool = false;
 
 	//Used on Character Editor
 	public var imageFile:String = '';
@@ -194,6 +196,7 @@ class Character extends FlxSprite
 		vocalsFile = json.vocals_file != null ? json.vocals_file : '';
 		originalFlipX = (json.flip_x == true);
 		editorIsPlayer = json._editor_isPlayer;
+		shakesScreen = json.shake_screen;
 
 		// antialiasing
 		noAntialiasing = (json.no_antialiasing == true);
@@ -293,6 +296,10 @@ class Character extends FlxSprite
 		if (!isPlayer && holdTimer >= Conductor.stepCrochet * (0.0011 #if FLX_PITCH / (FlxG.sound.music != null ? FlxG.sound.music.pitch : 1) #end) * singDuration)
 		{
 			dance();
+			if (shakesScreen)
+			{
+				FlxG.camera.shake(0.05, 0.3, true);
+			}
 			holdTimer = 0;
 		}
 

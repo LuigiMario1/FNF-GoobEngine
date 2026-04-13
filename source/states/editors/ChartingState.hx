@@ -85,7 +85,8 @@ class ChartingState extends MusicBeatState implements PsychUIEventHandler.PsychU
 		['Change Scroll Speed', "Value 1: Scroll Speed Multiplier (1 is default)\nValue 2: Time it takes to change fully in seconds."],
 		['Set Property', "Value 1: Variable name\nValue 2: New value"],
 		['Play Sound', "Value 1: Sound file name\nValue 2: Volume (Default: 1), ranges from 0 to 1"],
-		['Flash Screen', 'Flashes the screen\n what else do you need to know?']
+		['Flash Screen', 'Flashes the screen\n what else do you need to know?'],
+		['Note Shake', 'Shakes the notes\n value 1 is the shake intensity']
 	];
 	
 	public static var keysArray:Array<FlxKey> = [ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT]; //Used for Vortex Editor
@@ -161,7 +162,14 @@ class ChartingState extends MusicBeatState implements PsychUIEventHandler.PsychU
 		8,
 		12,
 		16,
-		24
+		24,
+		32,
+		48,
+		64,
+		96,
+		128,
+		192,
+		256
 	];
 	var curZoom:Float = 1;
 

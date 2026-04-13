@@ -2301,6 +2301,9 @@ class PlayState extends MusicBeatState
 			
 			case 'Flash Screen':
 				FlxG.camera.flash(FlxColor.WHITE);
+			
+			case 'Note Shake':
+				//TODO: add noteshake functionality
 		}
 
 		stagesFunc(function(stage:BaseStage) stage.eventCalled(eventName, value1, value2, flValue1, flValue2, strumTime));

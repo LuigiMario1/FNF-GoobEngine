@@ -414,7 +414,8 @@ class CharacterEditorState extends MusicBeatState implements PsychUIEventHandler
 				healthbar_colors: [161, 161, 161],
 				camera_position: [0, 0],
 				position: [0, 0],
-				vocals_file: null
+				vocals_file: null,
+				shake_screen: true
 			};
 
 			character.loadCharacterFile(_template);
