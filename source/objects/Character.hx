@@ -296,10 +296,6 @@ class Character extends FlxSprite
 		if (!isPlayer && holdTimer >= Conductor.stepCrochet * (0.0011 #if FLX_PITCH / (FlxG.sound.music != null ? FlxG.sound.music.pitch : 1) #end) * singDuration)
 		{
 			dance();
-			if (shakesScreen)
-			{
-				FlxG.camera.shake(0.05, 0.3, true);
-			}
 			holdTimer = 0;
 		}
 
@@ -395,6 +391,10 @@ class Character extends FlxSprite
 			atlas.update(0);
 		}
 		_lastPlayedAnimation = AnimName;
+		if (!isPlayer && shakesScreen && AnimName.startsWith('sing'))
+			{
+				FlxG.camera.shake(0.03, 0.1);
+			}
 
 		if (hasAnimation(AnimName))
 		{
@@ -414,6 +414,7 @@ class Character extends FlxSprite
 			if (AnimName == 'singUP' || AnimName == 'singDOWN')
 				danced = !danced;
 		}
+
 	}
 
 	function loadMappedAnims():Void
